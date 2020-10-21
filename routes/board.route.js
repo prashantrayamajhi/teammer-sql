@@ -15,4 +15,6 @@ router.post("/delete/:id", controller.deleteById);
 
 router.post("/task", controller.saveTask);
 
+router.get("/task/delete/:id", controller.deleteTask);
+
 module.exports = router;

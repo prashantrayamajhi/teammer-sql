@@ -5,10 +5,18 @@
   <input type="hidden" name="boardId" value="<%=board.id%>" />
   <button type="submit">Add</button>
 </form>
-<ul>
-  <%board.tasks.forEach(item=>{ %>
-  <li><%=item.task%></li>
-  <% })%>
-</ul>
+
+<div class="task">
+  <ul>
+    <%board.tasks.forEach(item=>{ %>
+    <div class="task-wrapper">
+      <li><%=item.task%></li>
+      <div class="utility">
+        <a href="/task/delete/<%=item.id%>">Done</a>
+      </div>
+    </div>
+    <% })%>
+  </ul>
+</div>
 <!---->
 <%-include("../includes/footer")%>

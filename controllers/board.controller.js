@@ -61,7 +61,18 @@ exports.saveTask = (req, res, next) => {
     boardId,
   })
     .then(() => {
-      console.log("Task added");
+      res.redirect("back");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+exports.deleteTask = (req, res, next) => {
+  const id = req.params;
+  Task.destroy({ where: { id: id.id } })
+    .then(() => {
+      res.redirect("back");
     })
     .catch((err) => {
       console.log(err);
