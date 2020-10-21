@@ -1,0 +1,14 @@
+<%-include("../includes/header")%>
+<h1><%=board.name%></h1>
+<form action="/task" class="task-form" method="POST">
+  <input type="text" name="task" placeholder="Task" autocomplete="off" />
+  <input type="hidden" name="boardId" value="<%=board.id%>" />
+  <button type="submit">Add</button>
+</form>
+<ul>
+  <%board.tasks.forEach(item=>{ %>
+  <li><%=item.task%></li>
+  <% })%>
+</ul>
+<!---->
+<%-include("../includes/footer")%>

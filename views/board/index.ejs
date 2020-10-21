@@ -1,0 +1,13 @@
+<%-include("../includes/header")%>
+<h1>My Boards</h1>
+<div class="board">
+  <%boards.forEach((board)=>{ %>
+  <a href="/<%=board.id%>">
+    <div class="card">
+      <h3><%=board.name%></h3>
+    </div>
+  </a>
+  <% })%>
+</div>
+<!---->
+<%-include("../includes/footer")%>
