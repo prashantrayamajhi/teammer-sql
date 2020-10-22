@@ -1,7 +1,20 @@
 <%-include("../includes/header")%>
+<!---->
+<%-include("../includes/nav")%>
 <h1><%=board.name%></h1>
-<form action="/task" class="task-form" method="POST">
-  <input type="text" name="task" placeholder="Task" autocomplete="off" />
+<form
+  action="/task"
+  class="task-form"
+  method="POST"
+  onsubmit="checkBeforeSubmit()"
+>
+  <input
+    type="text"
+    name="task"
+    placeholder="Task"
+    required="true"
+    autocomplete="off"
+  />
   <input type="hidden" name="boardId" value="<%=board.id%>" />
   <button type="submit">Add</button>
 </form>
@@ -9,6 +22,7 @@
 <div class="task">
   <ul>
     <%board.tasks.forEach(item=>{ %>
+
     <div class="task-wrapper">
       <li><%=item.task%></li>
       <div class="utility">
@@ -18,5 +32,14 @@
     <% })%>
   </ul>
 </div>
-<!---->
+<script type="text/javascript">
+  var wasSubmitted = false;
+  function checkBeforeSubmit() {
+    if (!wasSubmitted) {
+      wasSubmitted = true;
+      return wasSubmitted;
+    }
+    return false;
+  }
+</script>
 <%-include("../includes/footer")%>

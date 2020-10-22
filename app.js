@@ -18,12 +18,9 @@ app.use("/", BoardRoute);
 // assoctiations
 Board.hasMany(Tasks);
 
-db
-  .sync
-  // {
-  //  force: true
-  // }
-  ()
+db.sync({
+  // force: true,
+})
   .then(() => {
     app.listen(8000, console.log("Listening on port 8000"));
   })

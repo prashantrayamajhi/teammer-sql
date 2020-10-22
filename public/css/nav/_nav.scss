@@ -1,0 +1,16 @@
+.navbar {
+  background-color: black;
+  padding: 20px 10px;
+  .nav-list {
+    display: flex;
+    .nav-item {
+      list-style: none;
+      .nav-link {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 18px;
+        padding: 30px 50px;
+      }
+    }
+  }
+}
