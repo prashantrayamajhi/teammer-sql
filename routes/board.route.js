@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const controller = require("./../controllers/board.controller");
+const isAuthenticated = require("./../middleware/isAuthenticated");
 
-router.get("/", controller.findAll);
+router.get("/", isAuthenticated, controller.findAll);
 
 router.get("/add-board", controller.addBoard);
 
@@ -19,4 +20,5 @@ router.get("/task/delete/:id", controller.deleteTask);
 
 router.post("/delete", controller.deleteBoard);
 
+router.post("/logout", controller.logOut);
 module.exports = router;

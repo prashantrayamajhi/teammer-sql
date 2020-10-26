@@ -1,12 +1,17 @@
 const User = require("./../models/user");
 const bcrypt = require("bcryptjs");
+const passport = require("passport");
 
 exports.getLogin = (req, res, next) => {
   res.render("auth/login", { title: "Login" });
 };
 
-exports.postLogin = (req, res, next) => {};
-
+exports.postLogin = (req, res, next) => {
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/auth/login",
+  })(req, res, next);
+};
 exports.getSignup = (req, res, next) => {
   res.render("auth/signup", { title: "Signup" });
 };

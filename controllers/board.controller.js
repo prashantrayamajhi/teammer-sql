@@ -89,6 +89,11 @@ exports.deleteBoard = (req, res, next) => {
     });
 };
 
+exports.logOut = (req, res, next) => {
+  req.logOut();
+  res.redirect("/auth/login");
+};
+
 exports.updateById = (req, res, next) => {};
 
 exports.deleteById = (req, res, next) => {};
