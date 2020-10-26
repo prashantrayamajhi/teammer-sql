@@ -1,0 +1,21 @@
+<%-include("../includes/header")%>
+<!---->
+<div class="form-container">
+  <form action="/auth/signup" method="POST">
+    <div class="heading">Sign up</div>
+    <div class="input-wrapper">
+      <input type="text" name="name" placeholder="Full Name" />
+    </div>
+    <div class="input-wrapper">
+      <input type="text" name="username" placeholder="Username" />
+    </div>
+    <div class="input-wrapper">
+      <input type="password" name="password" placeholder="Password" />
+    </div>
+    <div class="input-wrapper">
+      <button type="submit">Sign up</button>
+    </div>
+    <p>Already have an account? <a href="/auth/login">Sign in</a></p>
+  </form>
+</div>
+<%-include("../includes/footer")%>

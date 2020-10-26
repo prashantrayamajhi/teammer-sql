@@ -4,7 +4,7 @@ const Task = require("./../models/tasks");
 exports.findAll = (req, res, next) => {
   Board.findAll()
     .then((boards) => {
-      res.render("board/index.ejs", {
+      res.render("board/index", {
         title: "Boards",
         boards,
       });
@@ -28,7 +28,6 @@ exports.findById = (req, res, next) => {
     },
   })
     .then((board) => {
-      console.log(board);
       res.render("board/single-board", {
         title: board.name,
         board,
@@ -73,6 +72,17 @@ exports.deleteTask = (req, res, next) => {
   Task.destroy({ where: { id: id.id } })
     .then(() => {
       res.redirect("back");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+exports.deleteBoard = (req, res, next) => {
+  let { boardId } = req.body;
+  Board.destroy({ where: { id: boardId } })
+    .then(() => {
+      res.redirect("/");
     })
     .catch((err) => {
       console.log(err);

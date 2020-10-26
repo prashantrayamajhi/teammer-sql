@@ -17,4 +17,6 @@ router.post("/task", controller.saveTask);
 
 router.get("/task/delete/:id", controller.deleteTask);
 
+router.post("/delete", controller.deleteBoard);
+
 module.exports = router;

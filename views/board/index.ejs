@@ -4,11 +4,16 @@
 <h1>My Boards</h1>
 <div class="board">
   <%boards.forEach((board)=>{ %>
-  <a href="/<%=board.id%>">
+  <a class="single-board" href="/<%=board.id%>">
     <div class="card">
       <h3><%=board.name%></h3>
     </div>
+    <form action="/delete" method="POST">
+      <button type="submit">Delete</button>
+      <input type="hidden" name="boardId" value="<%=board.id%>" />
+    </form>
   </a>
+
   <% })%>
 </div>
 <!---->
