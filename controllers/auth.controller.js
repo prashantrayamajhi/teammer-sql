@@ -12,6 +12,7 @@ exports.postLogin = (req, res, next) => {
     failureRedirect: "/auth/login",
   })(req, res, next);
 };
+
 exports.getSignup = (req, res, next) => {
   res.render("auth/signup", { title: "Signup" });
 };

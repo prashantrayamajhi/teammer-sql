@@ -2,7 +2,8 @@ const Board = require("./../models/board");
 const Task = require("./../models/tasks");
 
 exports.findAll = (req, res, next) => {
-  Board.findAll()
+  console.log(req.user.id);
+  Board.findAll({ where: { userId: req.user.id } })
     .then((boards) => {
       res.render("board/index", {
         title: "Boards",
@@ -43,6 +44,7 @@ exports.save = (req, res, next) => {
   console.log(name);
   Board.create({
     name,
+    userId: req.user.id,
   })
     .then(() => {
       console.log("Board created successfully");
