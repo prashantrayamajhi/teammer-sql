@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const controller = require("./../controllers/board.controller");
-const isAuthenticated = require("./../middleware/isAuthenticated");
+const { isAuthenticated } = require("./../middleware/auth");
 
 router.get("/", isAuthenticated, controller.findAll);
 
